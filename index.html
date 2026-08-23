@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kategorien &amp; Wohnungen</title>
+  <style>
+    html, body { margin: 0; padding: 0; }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+  <div id="ebCategories"></div>
+  <script type="text/javascript" src="https://www.easy-booking.at/ebPlugins/categories/jquery.easybooking.categories.v2.js"></script>
+  <script type="text/javascript">
+    function ebCategoriesLoadedCheck() {
+      if (typeof jQuery != "undefined") {
+        if (jQuery.fn.ebCategories) {
+          jQuery("#ebCategories").ebCategories({
+            customerId: 11803,
+            serialNo: "2107-3738-2369",
+            localeId: 2,
+            loadCSS: true,
+            maxImgWidth: 960,
+            maxImgHeight: 960,
+            bookingPage: "popup",
+            enquiryPage: "popup",
+            showAvailability: true,
+            showPrices: true,
+            showDetails: true,
+            category: "all",
+            roomLevel: false,
+            room: "all",
+            categoryDescription: true,
+            roomSorting: "random"
+          });
+        } else {
+          setTimeout(ebCategoriesLoadedCheck, 200);
+        }
+      } else {
+        setTimeout(ebCategoriesLoadedCheck, 200);
+      }
+    }
+    ebCategoriesLoadedCheck();
+  </script>
+</body>
+</html>
